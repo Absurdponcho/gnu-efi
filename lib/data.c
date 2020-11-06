@@ -52,6 +52,18 @@ EFI_MEMORY_TYPE PoolAllocationType = EfiBootServicesData;
 // Unicode collation functions that are in use
 //
 
+EFI_UNICODE_COLLATION_INTERFACE   LibStubUnicodeInterface = {
+    LibStubStriCmp,
+    LibStubMetaiMatch,
+    LibStubStrLwrUpr,
+    LibStubStrLwrUpr,
+    NULL,   // FatToStr
+    NULL,   // StrToFat
+    NULL    // SupportedLanguages
+};
+
+EFI_UNICODE_COLLATION_INTERFACE   *UnicodeInterface = &LibStubUnicodeInterface;
+
 //
 // Root device path
 //
